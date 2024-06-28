@@ -19,7 +19,7 @@
 <body>
 	<div class="container" style="width: 80%;">
 		<center>
-		<h1>End-to-end Speech Synthesis With Neural Transducer</h1>
+		<h1>TTS-Transducer: End-to-end Speech Synthesis With Neural Transducer</h1>
 		</center>
         
 		<!-- <div style="border: 1px solid black; margin-top: 20px; margin-bottom: 10px;"></div> -->
@@ -370,56 +370,49 @@ fill_audio_table("codec_comparison", seenspk_columns, seenspk_transcript_columns
 
 
 
-var unseenspk_context_audio_column = [
-
-	
-	"VCTK/contextFinal/context_wav_14.wav",
-	"VCTK/contextFinal/context_wav_63.wav",
-	"VCTK/contextFinal/context_wav_173.wav",
-	"VCTK/contextFinal/context_wav_95.wav",
-	"VCTK/contextFinal/context_wav_182.wav",
-	"VCTK/contextFinal/context_wav_122.wav",
-	"VCTK/contextFinal/context_wav_130.wav",
-	
-	
-	
-
-]
-
 var unseenspk_target_audio_column = [
-	"VCTK/groundtruth/dec_input_wav_14.wav",
-	"VCTK/groundtruth/dec_input_wav_63.wav",
-	"VCTK/groundtruth/dec_input_wav_173.wav",
-	"VCTK/groundtruth/dec_input_wav_95.wav",
-	"VCTK/groundtruth/dec_input_wav_182.wav",
-	"VCTK/groundtruth/dec_input_wav_122.wav",
-	"VCTK/groundtruth/dec_input_wav_130.wav",
+
+	
+	"original_audio/audio_dev_clean_fixedspid_refsp_unseen_200_sorted_asr/ref_17.wav",
+	"original_audio/audio_dev_clean_fixedspid_refsp_unseen_200_sorted_asr/ref_25.wav",
+	"original_audio/audio_dev_clean_fixedspid_refsp_unseen_200_sorted_asr/ref_28.wav",
+	"original_audio/audio_dev_clean_fixedspid_refsp_unseen_200_sorted_asr/ref_35.wav",
+	"original_audio/audio_dev_clean_fixedspid_refsp_unseen_200_sorted_asr/ref_45.wav",
+	
+	
+	
+
+]
+
+var unseenspk_encodec = [
+	"EnCodec-GST-v10a-8cb-e12d6r12/audio_dev_clean_unseen/hyp_17.wav",
+	"EnCodec-GST-v10a-8cb-e12d6r12/audio_dev_clean_unseen/hyp_25.wav",
+	"EnCodec-GST-v10a-8cb-e12d6r12/audio_dev_clean_unseen/hyp_28.wav",
+	"EnCodec-GST-v10a-8cb-e12d6r12/audio_dev_clean_unseen/hyp_35.wav",
+	"EnCodec-GST-v10a-8cb-e12d6r12/audio_dev_clean_unseen/hyp_45.wav",
 	
 	
 	
 ]
 
-var unseenspk_predicted_audio_column_encoder = [
-	"VCTK/encoderwithpriorwithctc/predicted_wav_14.wav",
-	"VCTK/encoderwithpriorwithctc/predicted_wav_63.wav",
-	"VCTK/encoderwithpriorwithctc/predicted_wav_173.wav",
-	"VCTK/encoderwithpriorwithctc/predicted_wav_95.wav",
-	"VCTK/encoderwithpriorwithctc/predicted_wav_182.wav",
-	"VCTK/encoderwithpriorwithctc/predicted_wav_122.wav",
-	"VCTK/encoderwithpriorwithctc/predicted_wav_130.wav",
+var unseenspk_dac = [
+	"DAC-GST-v10-9cb-e12d6r12/audio_dev_clean_unseen/hyp_17.wav",
+	"DAC-GST-v10-9cb-e12d6r12/audio_dev_clean_unseen/hyp_25.wav",
+	"DAC-GST-v10-9cb-e12d6r12/audio_dev_clean_unseen/hyp_28.wav",
+	"DAC-GST-v10-9cb-e12d6r12/audio_dev_clean_unseen/hyp_35.wav",
+	"DAC-GST-v10-9cb-e12d6r12/audio_dev_clean_unseen/hyp_45.wav",
+	
 	
 	
 	
 ]
-var unseenspk_predicted_audio_column = [
+var unseenspk_nemocodec = [
 
-	"VCTK/decoderwithpriorwithctc/predicted_wav_14.wav",
-	"VCTK/decoderwithpriorwithctc/predicted_wav_63.wav",
-	"VCTK/decoderwithpriorwithctc/predicted_wav_173.wav",
-	"VCTK/decoderwithpriorwithctc/predicted_wav_95.wav",
-	"VCTK/decoderwithpriorwithctc/predicted_wav_182.wav",
-	"VCTK/decoderwithpriorwithctc/predicted_wav_122.wav",
-	"VCTK/decoderwithpriorwithctc/predicted_wav_130.wav",
+	"NeMoRVQ-GST-v10-8cb-e12d6r12/audio_dev_clean_unseen/hyp_17.wav",
+	"NeMoRVQ-GST-v10-8cb-e12d6r12/audio_dev_clean_unseen/hyp_25.wav",
+	"NeMoRVQ-GST-v10-8cb-e12d6r12/audio_dev_clean_unseen/hyp_28.wav",
+	"NeMoRVQ-GST-v10-8cb-e12d6r12/audio_dev_clean_unseen/hyp_35.wav",
+	"NeMoRVQ-GST-v10-8cb-e12d6r12/audio_dev_clean_unseen/hyp_45.wav",
 	
 	
 	
@@ -429,13 +422,11 @@ var unseenspk_predicted_audio_column = [
 
 var unseenspk_text_column = [
 
-	"the encounter was to change his life",
-	"the play is based on a real life event",
-	"i have the first six months of next season to prove myself",
-	"admission is free",
-	"here's a clue",
-	"the train was on time",
-	"it is not simple",
+	"His eyes closed and he was only distantly aware of his handlers catching him as he fell, carrying him to his bench. While they massaged his limp body and cleansed the wound, all of his attention was turned inward.",
+	"I jumped out of the gondola, and found myself on the very spot where three years before I had taught Razetta such a forcible lesson; I enquired for a surgeon at the first coffee-house, and ran to the house that was pointed out to me.",
+	"I may as well say at once what my after-experience taught me--namely, that with all their faults and extraordinary obliquity of mental vision upon many subjects, they are the very best-bred people that I ever fell in with.",
+	"Ah! that was a name that a little disturbed him; and yet he felt confidence now in Mirabel's prescience; he could not but believe that with time even Mr. Temple might be reconciled!",
+	"The Honeysuckle escaped no better; and the Carnation was ready to die of vexation, at finding that her coveted freedom had levelled her to the dirt.",
 	
 	
 
@@ -454,10 +445,10 @@ var unseenspk_transcript_columns = [
 
 var unseenspk_columns = [
 	unseenspk_text_column,
-	unseenspk_context_audio_column,
 	unseenspk_target_audio_column,
-	unseenspk_predicted_audio_column_encoder,
-	unseenspk_predicted_audio_column
+	unseenspk_encodec,
+	unseenspk_dac,
+	unseenspk_nemocodec,
 ]
 
 
