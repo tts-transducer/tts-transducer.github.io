@@ -74,7 +74,6 @@
 				<thead>
 					<tr>
 						<th>Transcript</th>
-						<th>Reference Audio</th>
 						<th>Target Audio</th>
 						<th><b> Encodec Predicted Audio</b></th>
 						<th> Dac Predicted Audio </th>
@@ -100,7 +99,6 @@
 				<thead>
 					<tr>
 						<th>Transcript</th>
-						<th>Context Audio</th>
 						<th>Target Audio</th>
 						<th><b> Encodec Predicted Audio</b></th>
 						<th> Dac Predicted Audio </th>
@@ -274,7 +272,8 @@ var challenging_transcript_columns = [
 	challenging_t5tts_wprior_wlalign_text_column,
 ]
 
-fill_audio_table("challenging_texts", challenging_columns, challenging_transcript_columns, 150)
+// fill_audio_table("challenging_texts", challenging_columns, challenging_transcript_columns, 150)
+	fill_audio_table("challenging_texts", challenging_columns, [], 150)
 
 var unseen_null_text_column = [
 	"",
@@ -307,44 +306,44 @@ var seenspk_target_audio_column = [
 
 ]
 
-var seenspk_predicted_audio_column = [
+var nemocodec_column = [
 
-	"LibriFinal/withpriorwithctc/predicted_wav_244.wav",
-	"LibriFinal/withpriorwithctc/predicted_wav_142.wav",
-	"LibriFinal/withpriorwithctc/predicted_wav_239.wav",
-	"LibriFinal/withpriorwithctc/predicted_wav_199.wav",
-	"LibriFinal/withpriorwithctc/predicted_wav_28.wav",
+	"NeMoRVQ-GST-v10-8cb-e12d6r12/audio_train_clean_100_seen/hyp_15.wav",
+	"NeMoRVQ-GST-v10-8cb-e12d6r12/audio_train_clean_100_seen/hyp_22.wav",
+	"NeMoRVQ-GST-v10-8cb-e12d6r12/audio_train_clean_100_seen/hyp_23.wav",
+	"NeMoRVQ-GST-v10-8cb-e12d6r12/audio_train_clean_100_seen/hyp_8.wav",
+	"NeMoRVQ-GST-v10-8cb-e12d6r12/audio_train_clean_100_seen/hyp_9.wav",
 	
 
 ]
 
 var seenspk_text_column = [
 
-	"for of course thats where one who dies in despair is bound for",
-	"instead he shuffled over to where his wheel lay picked it up and rode slowly off",
-	"but it is not for me to choose",
-	"whoso knoweth me hath enough of my mischief and whoso knoweth me not i will make myself known to him",
-	"you know perfectly well that youve been shut up in your old laboratory all fall"
+	"One day, being at that part of the town on some special business, curiosity led me to observe things more than usually, and indeed I walked a great way where I had no business.",
+	"She asked the girl to read to her sometimes, and listened unblenching to whatever was offered her; she attended in the kitchen daily, organised varieties of food, and appeared interested in all that concerned her son.",
+	"The evil was so wide-spreading, so violent and immedicable, that no care, no prevention could be judged superfluous, which even added a chance to our escape.",
+	"He washed himself nicely, took the falcon on his shoulder, the hounds behind him, and the bagpipes under his arm, played as he went, drove the sheep, and proceeded to the emperor's palace, with the damsel at his side still in terror.",
+	"And the wolves all went peacefully back to their own homes, and Ferko and his bride lived for many years in peace and happiness together, and were much beloved by great and small in the land."
 	
 
 ]
 
 var encodec_column = [
-	"LibriFinal/encodec/predicted_wav_244.wav",
-	"LibriFinal/encodec/predicted_wav_143.wav",
-	"LibriFinal/encodec/predicted_wav_239.wav",
-	"LibriFinal/encodec/predicted_wav_199.wav",
-	"LibriFinal/encodec/predicted_wav_28.wav",
+	"EnCodec-GST-v10a-8cb-e12d6r12/audio_train_clean_100_seen/hyp_15.wav",
+	"EnCodec-GST-v10a-8cb-e12d6r12/audio_train_clean_100_seen/hyp_22.wav",
+	"EnCodec-GST-v10a-8cb-e12d6r12/audio_train_clean_100_seen/hyp_23.wav",
+	"EnCodec-GST-v10a-8cb-e12d6r12/audio_train_clean_100_seen/hyp_8.wav",
+	"EnCodec-GST-v10a-8cb-e12d6r12/audio_train_clean_100_seen/hyp_9.wav",
 	
 
 ]
 
 var dac_column = [
-	"LibriFinal/dacUpdated/predicted_wav_244.wav",
-	"LibriFinal/dacUpdated/predicted_wav_143.wav",
-	"LibriFinal/dacUpdated/predicted_wav_239.wav",
-	"LibriFinal/dacUpdated/predicted_wav_199.wav",
-	"LibriFinal/dacUpdated/predicted_wav_28.wav",
+	"DAC-GST-v10-9cb-e12d6r12/audio_train_clean_100_seen/hyp_15.wav",
+	"DAC-GST-v10-9cb-e12d6r12/audio_train_clean_100_seen/hyp_22.wav",
+	"DAC-GST-v10-9cb-e12d6r12/audio_train_clean_100_seen/hyp_23.wav",
+	"DAC-GST-v10-9cb-e12d6r12/audio_train_clean_100_seen/hyp_8.wav",
+	"DAC-GST-v10-9cb-e12d6r12/audio_train_clean_100_seen/hyp_9.wav",
 	
 
 ]
@@ -360,11 +359,10 @@ var seenspk_transcript_columns = [
 
 var seenspk_columns = [
 	seenspk_text_column,
-	seenspk_context_audio_column,
 	seenspk_target_audio_column,
 	encodec_column,
 	dac_column,
-	seenspk_predicted_audio_column,
+	nemocodec_column,
 
 ]
 
