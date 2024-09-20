@@ -40,7 +40,7 @@
 			
 			<p>
 				We evaluate different LLM-based TTS models on a set of 92 challenging texts (Full list can be found <a href="challenging_texts.txt">here</a>) 
-				For each text, we synthesize audios per model using speakers from the voice presets of the given models. The results of this evaluation are provided in Table 4 of our paper. We present some of the audio samples from this experiment below.
+				For each text, we synthesize audios per model using speakers from the voice presets of the given models. We present some of the audio samples from this experiment below.
 			</p>
 			<table class="table" style="margin-top: 20px;">
 				<thead>
@@ -54,6 +54,24 @@
 					</tr>
 				</thead>
 				<tbody id = "challenging_texts" >
+					
+				</tbody>
+			</table>
+		</br>
+			<p>
+				We evaluate our TTS models on a set of 92 challenging texts (Full list can be found <a href="challenging_texts.txt">here</a>), **instead of BPE tokens now we use IPA tokenization.**
+				For each text, we synthesize audios per model using speakers from the voice presets of the given models. We present some of the audio samples from this experiment below.
+				The text is tokenized using IPA based tokenizer.
+			</p>
+			<table class="table" style="margin-top: 20px;">
+				<thead>
+					<tr>
+						<th>Transcript</th>
+						<th><b> TTS-Transducer Large with IPA (ours with EnCodec)</b></th>
+						<th><b> TTS-Transducer Large with IPA (ours with NeMo-Codec RVQ)</b></th>
+					</tr>
+				</thead>
+				<tbody id = "challenging_texts_ipa" >
 					
 				</tbody>
 			</table>
@@ -161,6 +179,16 @@ var challenging_text_column = [
 	
 ]
 
+var challenging_text_column_ipa = [
+	
+	"'I think I could do that sort of job,' said Calcraft, on the spur of the moment.",
+	"actress fan bingbing attends the screening of 'ash is purest white jiang hu er nv ' during the seventy first annual cannes film festival",
+	"Anuraag backslash backslash r a d u r five backslash debug dot one eight zero nine underscore P R two h dot s t s contains.",
+	"h t t p zero x x h t t p one x x h t t p two x x h t t p three x x",
+	"common d b connectors include the d b nine d b fifteen d b nineteen d b twenty five d b thirty seven and d b fifty connectors",
+	
+]
+
 var challenging_valex_column = [
 
 	"VALL-E-X/audio_challenging_texts/hyp_0.wav",
@@ -212,6 +240,27 @@ var challenging_tts_transducer_nemocodec = [
 
 ]
 
+var challenging_tts_transducer_encodec_ipa = [
+	
+	"audio_challenging_texts_2spk_seen_lower_v2_pseudoref__ms30_encodec_ipa/hyp_0.wav",
+	"audio_challenging_texts_2spk_seen_lower_v2_pseudoref__ms30_encodec_ipa/hyp_2.wav",
+	"audio_challenging_texts_2spk_seen_lower_v2_pseudoref__ms30_encodec_ipa/hyp_8.wav",
+	"audio_challenging_texts_2spk_seen_lower_v2_pseudoref__ms30_encodec_ipa/hyp_38.wav",
+	"audio_challenging_texts_2spk_seen_lower_v2_pseudoref__ms30_encodec_ipa/hyp_26.wav",
+	
+
+]
+
+var challenging_tts_transducer_nemocodec_ipa = [
+	
+	"audio_challenging_texts_2spk_seen_lower_v2_pseudoref__ms30_nemorvq_ipa/hyp_0.wav",
+	"audio_challenging_texts_2spk_seen_lower_v2_pseudoref__ms30_nemorvq_ipa/hyp_2.wav",
+	"audio_challenging_texts_2spk_seen_lower_v2_pseudoref__ms30_nemorvq_ipa/hyp_8.wav",
+	"audio_challenging_texts_2spk_seen_lower_v2_pseudoref__ms30_nemorvq_ipa/hyp_38.wav",
+	"audio_challenging_texts_2spk_seen_lower_v2_pseudoref__ms30_nemorvq_ipa/hyp_26.wav",
+
+]
+
 var challenging_columns = [
 	challenging_text_column,
 	challenging_valex_column,
@@ -219,6 +268,12 @@ var challenging_columns = [
 	challenging_speecht5_column,
 	challenging_tts_transducer_encodec,
 	challenging_tts_transducer_nemocodec,
+]
+
+var challenging_columns_ipa = [
+	challenging_text_column_ipa,
+	challenging_tts_transducer_encodec_ipa,
+	challenging_tts_transducer_nemocodec_ipa,
 ]
 
 var challenging_vallex_transcripts = [
@@ -274,6 +329,7 @@ var challenging_transcript_columns = [
 
 // fill_audio_table("challenging_texts", challenging_columns, challenging_transcript_columns, 150)
 	fill_audio_table("challenging_texts", challenging_columns, [], 150)
+	fill_audio_table("challenging_texts_ipa", challenging_columns_ipa, [], 150)
 
 var unseen_null_text_column = [
 	"",
